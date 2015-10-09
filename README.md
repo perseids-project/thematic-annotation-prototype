@@ -54,7 +54,7 @@ The code for the template annotation input form for Arethusa is in the [https://
     * Translation alignment: `textgroup.work.edition.translation.align.xml` (e.g. `tlg0012.tlg001.perseus-grc1.perseus-eng1.align.xml`)
     * Images: `textgroup.work.edition.images.xml` (e.g. `tlg0012.tlg001.perseus-grc1.images.xml`)
     * Thematic Annotations: `textgroup.work.edition.tb.xml` (e.g. `tlg0012.tlg001.perseus-grc1.tb.xml`)
-7. Open the primary source text xml file
+7. Open the primary source text xml file (e.g. `xml/tlg0012.tlg001.perseus-grc1.xml`)
 8. run alignannotations-greekDemo or alignannotations-latinDemo XQuery transformation scenario
     1. Document, Transformation, Configure Transformation Scenario
     2. Select XML Transformation With XQuery transformation type
@@ -62,16 +62,15 @@ The code for the template annotation input form for Arethusa is in the [https://
     4. Make sure oXygen is set to output results as a file (click Edit, Output tab and make sure Evaluate as Sequence is unchecked)
     5. Update the parameters to have the correct values for e_work, e_translation and e_edition (i.e. it must correspond to the values from the urn of the target text)
     6. Click Transform Now
-9. Open translated xml
+9. Open translation xml file (e.g. `xml/tlg0012.tlg001.perseus-eng1.xml`)
 10. run reversealignannotations-greekDemo or reversealignannotations-latinDemo XQuery transformation scenario
     1. Same instructions as above for alignannotations-greekDemo/alignannotations-latinDemo
 11. Open newly created digital edition xml
     this the file created in the previous step, it should be in the digitaleditions directory and is named according to the convention `textgroup.work.edition.de.xml`
 12. run transformtodisplay-greekDemo or transformtodisplay-latinDemo XSLT Transformation scenario
     1. Update the following parameters to have the correct values:
-        1. `{http://data.perseus.org/namespaces/teida}urn` (the base urn for the target passage)
-        1. `{http://data.perseus.org/namespaces/teida}translationFile` (path to the file containing the translation text)
-13. TODO run xxx to transform the open annotation rdf to turtle
+        1. `{http://data.perseus.org/namespaces/teida}urn` (the full CTS urn for the target passage, including passage. e.g. `urn:cts:greekLit:tlg0012.tlg001.perseus-grc1:21.1-21.283`)
+        1. `{http://data.perseus.org/namespaces/teida}translationFile` (path to the file containing the translation digital edition file - result of reversealignment transformation - e.g `../../digitaledition/tlg0012.tlg001.perseus-eng1.de.xml`)
 14. load the resulting html file in your browser
     * `digitaledition/textgroup.work.edition.de.html`
 
