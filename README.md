@@ -46,6 +46,8 @@ The code for the template annotation input form for Arethusa is in the [https://
     * Thematic Annotation
     * Image Annotations (TEI XML)
 5. Call the CTS API to retrieve the primary source passage and translation that correspond to the target of the annotations and save the output in the xml directory of this repository.
+    * You will need to strip the CTS API request/reply data from the output, leaving only the TEI xml
+    * If you don't have a source translation (e.g. if the annotator created their own for the alignment) you can use the alignment-to-tei.xsl transform located in the src/xslt directory of this repo to create a TEI xml file from the translation alignment annotation.
 6. Apply naming conventions to all files:
     * Source passage: `textgroup.work.edition.xml` (e.g. `tlg0012.tlg001.perseus-grc1.xml`)
     * Translated passage: `textgroup.work.translation.xml` (e.g. `tlg0012.tlg001.perseus-eng1.xml`)
