@@ -34,16 +34,8 @@ See <http://www.gnu.org/licenses/>.
     <xsl:preserve-space elements="*"/>
     <!-- file containing the aligned translation markup -->
     <xsl:param name="teida:translationFile"/>
-    <!-- file containing image tags -->
-    <xsl:param name="teida:imageFile"/>
-    <xsl:param name="teida:oaFile"/>
     <xsl:param name="teida:urn"/>
-    <xsl:param name="teida:treebankFile" select="concat($teida:urn,'tb.xml')"/>
     <xsl:param name="teida:imageTarget" select="'urn:cts:pdltmp:vortex.img001'"/>
-    <xsl:variable name="ctsUriPrefix" select="'http://data.perseus.org/texts/'"/>
-    <xsl:variable name="citeUriPrefix" select="'http://data.perseus.org/collections/'"/>
-    <xsl:variable name="citeCollection" select="'urn:cite:perseus:pdlvortex'"/>
-    <xsl:variable name="annotators" select="doc($teida:treebankFile)//annotator"/>
     <xsl:variable name="workurn">
         <xsl:analyze-string select="$teida:urn" regex="(urn:cts:.*?:.*?\..*?)\.">
             <xsl:matching-substring>
@@ -51,7 +43,20 @@ See <http://www.gnu.org/licenses/>.
             </xsl:matching-substring>
         </xsl:analyze-string>
     </xsl:variable>
-    
+    <xsl:variable name="versionurn">
+        <xsl:analyze-string select="$teida:urn" regex="urn:cts:.*?:(..*?):">
+            <xsl:matching-substring>
+                <xsl:value-of select="regex-group(1)"></xsl:value-of>
+            </xsl:matching-substring>
+        </xsl:analyze-string>
+    </xsl:variable>
+    <xsl:variable name="teida:treebankFile" select="concat('../../xml/',$versionurn,'.tb.xml')"/>
+    <xsl:variable name="ctsUriPrefix" select="'http://data.perseus.org/texts/'"/>
+    <xsl:variable name="citeUriPrefix" select="'http://data.perseus.org/collections/'"/>
+    <xsl:variable name="citeCollection" select="'urn:cite:perseus:pdlvortex'"/>
+    <xsl:variable name="annotators" select="doc($teida:treebankFile)//annotator"/>
+    <xsl:variable name="teida:imageFile" select="concat('../../xml/',$versionurn,'.images.xml')"/>
+    <xsl:variable name="teida:oaFile" select="concat($versionurn,'.de.oa.rdf')"/> 
      <!-- startHook is called after processing the tei:body element -->
      <xsl:template name="startHook" exclude-result-prefixes="tei xsl teida">
         <div id="themegraph">

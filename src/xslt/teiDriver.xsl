@@ -41,6 +41,7 @@ Created on 13 Jul 2012-->
         alt="created by TEI XSL Stylesheets"/>
   </a></xsl:template>
 <xsl:param name="autoToc"></xsl:param>
+<xsl:param name="institution">Perseids Project - Thematic Annotations</xsl:param>
 <xsl:template name="autoMakeHead">  <xsl:param  name="display"/>
   <xsl:choose>
     <xsl:when  test="tei:head and $display='full'">
