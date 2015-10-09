@@ -16,9 +16,15 @@ PerseidsTools.LDResults.thumbs = function(_elem, _results) {
     $( '.perseidsld_query_obj_simple' ).remove();
   } else {
     for ( var i=0, ii=_results.length; i<ii; i++ ) {
-       var src = _results[i];
-        var imgUrn = '<img src="'+ src + '" height="100px" onclick="PerseidsTools.do_image_link(this);" title="Click to Zoom"/>';
-        jQuery( _elem ).append( imgUrn );
+        var src = _results[i];
+        var imgObjUrn = src.match(/(urn:cite:.*?\.[^\.]+)/);
+        if (imgObjUrn) {
+          imgObjUrn = imgObjUrn[1];
+        }
+        if ($("#tei-images div span[data-facs ^= '" + imgObjUrn +"']").length > 0) {
+            var imgUrn = '<img src="'+ src + '" height="100px" onclick="PerseidsTools.do_image_link(this);" title="Click to Zoom"/>';
+            jQuery( _elem ).append( imgUrn );
+        }
     }
 
   }
