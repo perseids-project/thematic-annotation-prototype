@@ -1,0 +1,157 @@
+
+.stdfooter {
+    clear: both;
+}
+
+.tei-word.highlight, .tei-aligned-word.highlight {
+    background-color: yellow;
+}
+
+#tei-tools {
+    float: right;
+    width: 25%;
+    margin-top: .5em;
+    right: -25%;
+    margin-left: 1em;  
+}
+
+#tei-lemmas,#tei-analyses {
+    overflow: scroll;
+    border: 1px solid black;
+    padding: 1em;
+    height: 400px;
+  
+}
+
+#tei-syntax-frame {
+    position: absolute;
+    bottom: -10em;
+    left: .5em;
+    width: 70%;
+}
+
+.tei-aligned-text {
+    float: right;
+    right: -30%;
+    width: 30%;
+    /** overflow: scroll;
+    border: 1px solid black; **/
+    padding: 1em;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  /*fill: brown;*/
+  opacity: 0.5;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.barlabel {
+    font: 12px sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.themebar:hover .barlabel {
+    color: #C00000;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.highlight-theme {
+    background-color: steelblue;
+    opacity: 0.5;
+}
+.click-theme {
+    background-color: brown;
+    opacity: 1;
+}
+.bar.click-theme {
+  fill: brown;
+  opacity: 1;
+}
+
+#hideictframe {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: right;
+    width: 96%;    
+}
+
+img {
+    cursor: pointer;
+}
+
+.mainAuthor, .mainEditor {
+    font-style:italic;
+    font-size: smaller;
+}
+
+.tei_body, .tei-aligned-text {
+    max-height: 800px;
+    overflow: auto;
+}
+
+#tei-theme-words {
+    max-height: 600px;
+    overflow: scroll;
+}
+.tei-annotated-by {
+    font-style: italic;
+}
+.tei-annotators {
+    display:inline;
+}
+
+.tei-annotators li{
+    list-style-type: none;
+}
+
+#tei-oa-download {
+    float: right;
+}
+
+.maintitle {
+    display: none;
+}
+
+.floatleft {
+    float: left;
+    padding-right: 5px;
+}
+
+.floatright {
+    float: right;
+    padding-left: 5px;
+}
+
+footer {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  clear: both;
+}
+footer {
+  clear: both;
+  border-top: 1px solid #800000;
+  margin-top: 2em;
+}
+.logo {
+    border: medium;
+    height: 100px;
+}
